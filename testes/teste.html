@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        #container{
+            background: #f5c7c7;
+            border: 1px solid #fff;
+            width: 800px;
+            height: 400px;
+            margin: auto;
+            padding: 40px;
+        }
+        input{
+            width: 100px;
+            height: 40px;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div id="container">
+    
+        <H1>VERIFICAR VELOCIDADE</H1>
+            Digite a Velocidade
+            <input type="number" name="txtvelocidade" id="txtvelocidade"> Km/h
+            <input type="button" value="Verificar" onclick="calcular()">
+            <div id="resultado">
+
+            </div>
+    
+    </div>
+        
+        <script>
+            function calcular(){
+                var txtvel = window.document.querySelector('input#txtvelocidade');
+                var result = window.document.querySelector('div#resultado');
+                var vel = Number(txtvel.value);
+
+                if(vel >130){
+                    result.innerHTML = `Você estava a <strong> ${vel}Km/h, </strong> MULTADO`
+                }else{
+                    result.innerHTML = `Você estava a <strong> ${vel} Km/h, </strong> siga em frente, tenha uma boa viagem!`
+                }
+            }
+            var container = window.document.getElementById('container');
+            container.addEventListener('click', clicar)
+            //container.addEventListener('mouseenter', entrar)
+            container.addEventListener('mouseout', sair)
+
+            function clicar(){
+                container.style.background = '#505050';
+            }
+
+            function entrar(){
+                container.innerText = "Vamos bagunçar!"
+            }
+
+            function sair(){
+                container.style.background =  '#f5c7c7';
+            }
+
+        </script>
+    
+</body>
+</html>
